@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from course.models import Course
+from django.http import HttpResponse
 
 def esewarequest(request,id):
 	if request.method=='GET':
@@ -20,3 +21,6 @@ def khaltirequest(request,id):
 		}
 
 		return render(request,'khalti_request.html',context)
+
+def testthis(request):
+	return HttpResponse('<b>Hello'+'</b>')

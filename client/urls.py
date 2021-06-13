@@ -13,7 +13,8 @@ urlpatterns = [
     path('change-password/',ChangePasswordView.as_view(),name='change-password'),
     path('teachers/',TeacherAPI.as_view(),name='teacher'),
     path('esewa-request/<int:id>/',esewarequest,name='esewa-request'),
-    path('khalti-request/<int:id>/',khaltirequest,name='khalti-request')
+    path('khalti-request/<int:id>/',khaltirequest,name='khalti-request'),
+    path('test/',testthis,name="test")
  #    path('recent-report/',DashboardRecentReportAPI.as_view(),name='recent-report')
 ]
 
