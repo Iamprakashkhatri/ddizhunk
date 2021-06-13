@@ -96,17 +96,6 @@ WSGI_APPLICATION = 'dizhunk.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':  'evidya-test',
-        'USER': 'evidya_test',
-        'PASSWORD':  'hello333hello',
-        'HOST': 'evidya-test.cta5814zeryf.us-east-2.rds.amazonaws.com',
-        'PORT': '5432',
-    }
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -190,14 +179,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# try:
-#     env_local = config('IN_LOCAL')
-#     if env_local.lower() == 'local':
-#         from dizhunk.local import *
-#     else:
-#         from dizhunk.server import *
-# except AttributeError:
-#     from evidya.server import *
+try:
+    env_local = config('IN_LOCAL')
+    if env_local.lower() == 'local':
+        from dizhunk.local import *
+    else:
+        from dizhunk.server import *
+except AttributeError:
+    from evidya.server import *
 
 
 EMAIL_HOST = config('SMTP_HOST')
