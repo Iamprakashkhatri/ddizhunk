@@ -1,0 +1,14 @@
+<body>
+    <form action="https://uat.esewa.com.np/epay/main" method="POST">
+    <input value="{{course.sale_price}}" name="tAmt" type="text">
+    <input value="{{course.sale_price}}" name="amt" type="text">
+    <input value="0" name="txAmt" type="text">
+    <input value="0" name="psc" type="text">
+    <input value="0" name="pdc" type="text">
+    <input value="epay_payment" name="scd" type="text">
+    <input value="{{course.id}}" name="pid" type="text">
+    <input value="http://127.0.0.1:8000/api/client/esewa-request/" type="text" name="su">
+    <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="text" name="fu">
+    <input value="Submit" type="submit">
+    </form>
+</body>
