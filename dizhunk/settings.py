@@ -89,13 +89,12 @@ WSGI_APPLICATION = 'dizhunk.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -178,6 +177,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+try:
+    env_local = config('IN_LOCAL')
+    if env_local.lower() == 'local':
+        from dizhunk.local import *
+    else:
+        from dizhunk.server import *
+except AttributeError:
+    from evidya.server import *
 
 
 EMAIL_HOST = config('SMTP_HOST')
